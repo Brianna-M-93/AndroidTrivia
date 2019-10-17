@@ -34,11 +34,11 @@ class GameWonFragment : Fragment() {
         val binding: FragmentGameWonBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_won, container, false)
         binding.nextMatchButton.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_gameWonFragment_to_gameFragment)
+            view.findNavController().navigate(GameWonFragmentDirections.actionGameWonFragmentToGameFragment())
         }
 
         var args = GameWonFragmentArgs.fromBundle(arguments!!)
-        Toast.makeText(context, "Correct Answers: ${args.numCorrect}, Number of Questions: ${args.numQuestions}", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "Correct Answers: ${args.numCorrect}, Out of: ${args.numQuestions}", Toast.LENGTH_LONG).show()
         return binding.root
     }
 }
